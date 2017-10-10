@@ -9,10 +9,20 @@
     <button type="button" onclick="math()">Start!</button>
 <script>
     function math(){
-        var numbers;
-        do {
-            numbers = prompt("Enter any positive number you want or enter -1 to end", "");
-        } while (isNaN(numbers) == true)
+        var x=0;
+        var numList=[];
+        while(x==0) {
+            number = prompt("Enter any positive number you want\n enter -1 to end");
+            number= parseInt(number);
+            if(number == NaN){
+                alert("this is not a number");
+            }else if(number==(1-2)){
+                x=1;
+            }else(number != NaN){
+                numList.push(number);
+            }
+            console.log(numList);
+        }
 
     }
 

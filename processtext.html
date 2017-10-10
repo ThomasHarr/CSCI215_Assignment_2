@@ -24,8 +24,8 @@
         var words = finalStr.split(" ");
         console.log(words);
         var count = [];
-        for (var x in words){
-            var word = words[];
+        for (var i = 0; i < words.length; i++){
+            var word = words[i];
             console.log(word);
             if (word in count){
                 var log = count[word];
@@ -35,14 +35,8 @@
                 count[word]=1;
             }
         }
-<<<<<<< HEAD
-        var outputText = count;
-        console.log(outputText);
-        document.getElementById("output").innerHTML = outputText;
-=======
         console.log(count);
-        alert("displayed in the console");
->>>>>>> adf1312e0eaa81986a577778640ac27ab675998f
+        alert("The answer is in the console")
 
     }
 
