@@ -5,17 +5,19 @@
     <title>Math Fun</title>
 </head>
 <body>
-<form>
-    <div>
-        Input:<br>
-        <label><textarea  rows="2" cols="50" placeholder="add your text here" id="input"></textarea></label>
-    </div>
-</form>
-<button type="button" onclick="mathfun()">Process</button>
+    <h1>Fun with Math</h1>
+    <button type="button" onclick="math()">Start!</button>
+<script>
+    function math(){
+        var numbers;
+        do {
+            numbers = prompt("Enter any positive number you want or enter -1 to end", "");
+        } while (isNaN(numbers) == true)
 
-<div id="output">
+    }
 
-</div>
 
+
+</script>
 </body>
 </html>
