@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Processing Text</title>
+</head>
+<body>
+<form>
+    <div>
+        Input:<br>
+        <label><textarea  rows="2" cols="50" placeholder="add your text here" id="input"></textarea></label>
+    </div>
+</form>
+<button type="button" onclick="counting()">Process</button>
+
+<div id="output">
+
+</div>
+
+<script>
+    function counting(){
+        var str = document.getElementById("input").value;
+        var newStr = str.replace(/\./g,'');
+        console.log(newStr);
+        var finalStr = newStr.toUpperCase();
+        var words = finalStr.split(" ");
+        console.log(words);
+        var count=[];
+        for (var i = 0; i < words.length; i++){
+            var word = words[i];
+            console.log(word);
+            if (word in count){
+                var log = count[word];
+                log ++;
+                count[word]=log;
+            }else{
+                count[word]=1;
+            }
+        }
+        console.log(count);
+        var message = count;
+        document.getElementById('output').innerHTML=message;
+
+    }
+
+
+
+
+</script>
+</body>
+</html>
