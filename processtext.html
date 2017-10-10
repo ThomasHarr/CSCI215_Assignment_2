@@ -13,9 +13,7 @@
 </form>
 <button type="button" onclick="counting()">Process</button>
 
-<div>
-    <p id="output"></p>
-</div>
+
 
 <script>
     function counting(){
@@ -25,10 +23,9 @@
         var finalStr = newStr.toUpperCase();
         var words = finalStr.split(" ");
         console.log(words);
-        var count;
-        count = [];
-        for (var i = 0; i < words.length; i++){
-            var word = words[i];
+        var count = [];
+        for (var x in words){
+            var word = words[];
             console.log(word);
             if (word in count){
                 var log = count[word];
@@ -38,15 +35,14 @@
                 count[word]=1;
             }
         }
-        console.log(count);
-        var newCount=count.split()
-        alert("displayed in the console");
+        var outputText = count;
+        console.log(outputText);
+        document.getElementById("output").innerHTML = outputText;
 
     }
 
-
-
-
 </script>
+
+<div id="output"></div>
 </body>
 </html>
