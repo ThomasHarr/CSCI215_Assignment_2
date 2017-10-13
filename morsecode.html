@@ -7,18 +7,57 @@
 <body>
 <form>
     <div>
-        Input:<br>
-        <label><textarea  rows="2" cols="50" placeholder="add your text here" id="input"></textarea></label>
+        <label>Input:<br></label>
+        <textarea  rows="2" cols="50" placeholder="add your text here" id="input"></textarea>
     </div>
 </form>
-<button type="button" onclick="morsecode()">Process</button>
+<button type="button" onclick="morseCode()">Encode</button>
 
-<div id="output">
-
-</div>
+<div id="output"></div>
 
 <script>
-    function morsecode(){
+    function morseCode(){
+        var morse = {
+            '.-': 'A',
+            '-...': 'B',
+            '-.-.': 'C',
+            '-..': 'D',
+            '.': 'E',
+            '..-.': 'F',
+            '--.': 'G',
+            '....': 'H',
+            '..': 'I',
+            '.---': 'J',
+            '-.-': 'K',
+            '.-..': 'L',
+            '--': 'M',
+            '-.': 'N',
+            '---': 'O',
+            '.--.': 'P',
+            '--.-': 'Q',
+            '.-.': 'R',
+            '...': 'S',
+            '-': 'T',
+            '..-': 'U',
+            '...-': 'V',
+            '.--': 'W',
+            '-..-': 'X',
+            '-.--': 'Y',
+            '--..': 'Z'
+        };
+
+        var sentence = document.getElementById("input").value;
+        sentence.toString();
+        sentence.split(" ");
+        sentence= sentence.toUpperCase();
+
+
+        for(i=1; i<sentence.length; i++){
+            var letter= sentence[i];
+            var encodeSentence= morse[letter]
+        }
+        console.log(encodeSentence)
+
 
 
     }

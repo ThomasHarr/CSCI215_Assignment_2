@@ -7,15 +7,33 @@
 <body>
 <form>
     <div>
-        Input:<br>
-        <label><textarea  rows="2" cols="50" placeholder="add your text here" id="input"></textarea></label>
+        <label>Input:<br></label>
+        <textarea  rows="2" cols="50" placeholder="add your text here" id="input"></textarea>
     </div>
 </form>
-<button type="button" onclick="email()">Process</button>
+<button type="button" onclick="validEmail()">Process</button>
 
-<div id="output">
+<div id="output" style="width: 600px; height: 600px; "></div>
 
-</div>
+<script>
+    function validEmail(){
+        var I= [];
+        I[0]="images/sad.png";
+        I[1]="images/smile.png";
+        var email = document.getElementById("input").value;
+        var at = email.indexOf('@');
+        var dot = email.indexOf('.');
+        if (at<1 || dot<at+2 || dot+2>=email.length){
+            var image = 'url(' + I[0] + ')';
+            document.getElementById('output').style.backgroundImage=image;
+        }else{
+            var image = 'url(' + I[1] + ')';
+            document.getElementById('output').style.backgroundImage=image;
+        }
+
+
+    }
+</script>
 
 </body>
 </html>

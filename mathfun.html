@@ -11,6 +11,7 @@
     function math(){
         var x=0;
         var numList=[];
+        var sum=0;
         while(x==0) {
             number = prompt("Enter any positive number you want\n enter -1 to end");
             number= parseInt(number);
@@ -18,12 +19,22 @@
                 alert("this is not a number");
             }else if(number==(1-2)){
                 x=1;
-            }else(number != NaN){
+            }else{
                 numList.push(number);
             }
             console.log(numList);
         }
+        for(var i =0;i<numList.length; i++){
+            sum+= numList[i];
 
+        }
+        console.log(sum);
+        var mean = sum/numList.length;
+        console.log(mean);
+
+
+        var message = parseInt(mean);
+        document.getElementById("output").innerHTML=message;
     }
 
 
