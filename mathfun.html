@@ -30,10 +30,16 @@
         }
         console.log(sum);
         var mean = sum/numList.length;
+        var min = Math.min.apply(null, numList);
+        var max = Math.max.apply(null, numList);
         console.log(mean);
+        console.log(min);
+        console.log(max);
+
 
         evenAndOdd(numList);
         prime(numList);
+        powers(numList);
     }
 
     function evenAndOdd(numList){
@@ -58,7 +64,7 @@
         var primes=[];
         var notPrime=[];
         for(i=0;i<numList.length;i++) {
-            if(numList[i]===1){
+            if(numList[i]<2){
                 notPrime.push(numList[i]);
             }else if(numList[i]===2){
                 primes.push(numList[i]);
@@ -76,6 +82,9 @@
         console.log(notPrime);
     }
 
+    function powers(numList){
+
+    }
 
 
 </script>
