@@ -18,47 +18,51 @@
 <script>
     function morseCode(){
         var morse = {
-            '.-': 'A',
-            '-...': 'B',
-            '-.-.': 'C',
-            '-..': 'D',
-            '.': 'E',
-            '..-.': 'F',
-            '--.': 'G',
-            '....': 'H',
-            '..': 'I',
-            '.---': 'J',
-            '-.-': 'K',
-            '.-..': 'L',
-            '--': 'M',
-            '-.': 'N',
-            '---': 'O',
-            '.--.': 'P',
-            '--.-': 'Q',
-            '.-.': 'R',
-            '...': 'S',
-            '-': 'T',
-            '..-': 'U',
-            '...-': 'V',
-            '.--': 'W',
-            '-..-': 'X',
-            '-.--': 'Y',
-            '--..': 'Z'
+            A: ".-",
+            B: "-...",
+            C: "-.-.",
+            D: "-..",
+            E: ".",
+            F: "..-.",
+            G: "--.",
+            H: "....",
+            I: "..",
+            J: ".---",
+            K: "-.-",
+            L: ".-..",
+            M: "--",
+            N: "-.",
+            O: "---",
+            P: ".--.",
+            Q: "--.-",
+            R: ".-.",
+            S: "...",
+            T: "-",
+            U: "..-",
+            V: "...-",
+            W: ".--",
+            X: "-..-",
+            Y: "-.--",
+            Z: "--.."
         };
 
         var sentence = document.getElementById("input").value;
-        sentence.toString();
-        sentence.split(" ");
-        sentence= sentence.toUpperCase();
+        var caps=sentence.toUpperCase();
+        caps.toString();
+        var letters=caps.split(" ");
+        console.log(letters);
+        var encodeSentence="";
 
-
-        for(i=1; i<sentence.length; i++){
-            var letter= sentence[i];
-            var encodeSentence= morse[letter]
+        for(i=1; i<letters.length; i++){
+            var letter= letters[i];
+            encodeSentence= morse[letter]
         }
-        console.log(encodeSentence)
+        console.log(encodeSentence);
 
+        display(encodeSentence);
+    }
 
+    function display(encodeSentence){
 
     }
 

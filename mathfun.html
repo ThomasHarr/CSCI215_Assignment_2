@@ -7,11 +7,11 @@
 <body>
     <h1>Fun with Math</h1>
     <button type="button" onclick="math()">Start!</button>
+    <div id="output"></div>
 <script>
     function math(){
         var x=0;
         var numList=[];
-        var sum=0;
         while(x==0) {
             number = prompt("Enter any positive number you want\n enter -1 to end");
             number= parseInt(number);
@@ -22,68 +22,94 @@
             }else{
                 numList.push(number);
             }
-            console.log(numList);
         }
-        for(var i=0;i<numList.length; i++){
-            sum+= numList[i];
+        console.log(numList);
 
-        }
-        console.log(sum);
-        var mean = sum/numList.length;
-        var min = Math.min.apply(null, numList);
-        var max = Math.max.apply(null, numList);
-        console.log(mean);
-        console.log(min);
-        console.log(max);
-
-
+        minMaxMean(numList);
         evenAndOdd(numList);
         prime(numList);
         powers(numList);
-    }
 
-    function evenAndOdd(numList){
-        var evens=[];
-        var odds=[];
-        for(i=0; i<numList.length; i++){
-
-            if((numList[i]%2 !=1)){
-                evens.push(numList[i]);
-
-            }else{
-                odds.push(numList[i]);
-
+        function minMaxMean(numList){
+            var sum=0;
+            for(var i=0;i<numList.length; i++){
+                sum+= numList[i];
             }
+            console.log(sum);
+            var mean = sum/numList.length;
+            var min = Math.min.apply(null, numList);
+            var max = Math.max.apply(null, numList);
+            console.log(mean);
+            console.log(min);
+            console.log(max);
+            display(mean, max, min);
         }
-        console.log(odds);
-        console.log(evens);
 
-    }
+        function evenAndOdd(numList){
+            var evens=[];
+            var odds=[];
+            for(i=0; i<numList.length; i++){
 
-    function prime(numList){
-        var primes=[];
-        var notPrime=[];
-        for(i=0;i<numList.length;i++) {
-            if(numList[i]<2){
-                notPrime.push(numList[i]);
-            }else if(numList[i]===2){
-                primes.push(numList[i]);
-            }else{
-                for(i=2;i<numList.length;i++){
-                    if((numList[i]%i===0)){
-                        notPrime.push(numList[i]);
-                    }else{
-                        primes.push(numList[i]);
+                if((numList[i]%2 !=1)){
+                    evens.push(numList[i]);
+
+                }else{
+                    odds.push(numList[i]);
+
+                }
+            }
+            console.log(odds);
+            console.log(evens);
+            display(evens, odds);
+        }
+
+        function prime(numList){
+            var primes=[];
+            var notPrime=[];
+            for(i=0;i<numList.length;i++) {
+                if(numList[i]<2){
+                    notPrime.push(numList[i]);
+                }else if(numList[i]===2){
+                    primes.push(numList[i]);
+                }else{
+                    for(i=0;i<numList.length;i++){
+                        if((numList[i]%2===0)){
+                            notPrime.push(numList[i]);
+                        }else{
+                            primes.push(numList[i]);
+                        }
                     }
                 }
             }
+            console.log(primes);
+            display(primes);
+
         }
-        console.log(primes);
-        console.log(notPrime);
+
+        function powers(numList){
+            var powerOf=[];
+            var nope=[];
+            for(i=0;i<numList.length;i++){
+                if(numList[i]<2){
+                    nope.push(numList[i]);
+                }else if((numList[i]%2===0)){
+                    powerOf.push(numList[i]);
+                }else{
+                    nope.push(numList[i]);
+                }
+
+            }
+            console.log(powerOf);
+            display(powerOf);
+        }
+
     }
 
-    function powers(numList){
 
+
+    function display(mean, max, min, evens, odds, primes, powerOf){
+        var message= 'Mean: '+ mean.toPrecision(2) +' \nMaximum: '+ max +' \nMinimum: '+ min +' \nEvens: '+ evens +' \nOdds: '+ odds +' \nPrime Numbers: '+ primes +' \nPowers of 2: '+ powerOf;
+        document.getElementById("output").innerHTML=message;
     }
 
 
