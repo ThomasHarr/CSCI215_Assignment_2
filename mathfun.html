@@ -24,7 +24,7 @@
             }
             console.log(numList);
         }
-        for(var i =0;i<numList.length; i++){
+        for(var i=0;i<numList.length; i++){
             sum+= numList[i];
 
         }
@@ -32,9 +32,48 @@
         var mean = sum/numList.length;
         console.log(mean);
 
+        evenAndOdd(numList);
+        prime(numList);
+    }
 
-        var message = parseInt(mean);
-        document.getElementById("output").innerHTML=message;
+    function evenAndOdd(numList){
+        var evens=[];
+        var odds=[];
+        for(i=0; i<numList.length; i++){
+
+            if((numList[i]%2 !=1)){
+                evens.push(numList[i]);
+
+            }else{
+                odds.push(numList[i]);
+
+            }
+        }
+        console.log(odds);
+        console.log(evens);
+
+    }
+
+    function prime(numList){
+        var primes=[];
+        var notPrime=[];
+        for(i=0;i<numList.length;i++) {
+            if(numList[i]===1){
+                notPrime.push(numList[i]);
+            }else if(numList[i]===2){
+                primes.push(numList[i]);
+            }else{
+                for(i=2;i<numList.length;i++){
+                    if((numList[i]%i===0)){
+                        notPrime.push(numList[i]);
+                    }else{
+                        primes.push(numList[i]);
+                    }
+                }
+            }
+        }
+        console.log(primes);
+        console.log(notPrime);
     }
 
 
