@@ -49,13 +49,16 @@
         var sentence = document.getElementById("input").value;
         var caps=sentence.toUpperCase();
         caps.toString();
-        var letters=caps.split(" ");
-        console.log(letters);
+        var word=caps.split(" ");
+        console.log(word);
         var encodeSentence="";
 
-        for(i=1; i<letters.length; i++){
-            var letter= letters[i];
-            encodeSentence= morse[letter]
+        for(j=0; j<word.length; j++){
+            var letters = word[j];
+            for(i=0; i<letters.length; i++){
+                var letter= letters[i];
+                encodeSentence += morse[letter]
+            }
         }
         console.log(encodeSentence);
 
