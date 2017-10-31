@@ -90,14 +90,10 @@
                     notPrime.push(numList[i]);
                 }else if(numList[i]===2){
                     primes.push(numList[i]);
+                }else if (numList[i]%2===0) {
+                    notPrime.push(numList[i]);
                 }else{
-                    for(i=0;i<numList.length;i++){
-                        if((numList[i]%2===0)){
-                            notPrime.push(numList[i]);
-                        }else{
-                            primes.push(numList[i]);
-                        }
-                    }
+                    primes.push(numList[i]);
                 }
             }
             console.log("The Prime numbers are: " + primes);
@@ -107,16 +103,18 @@
 
         function powers(numList){
             var powerOf=[];
-            var nope=[];
+            var nope = [];
             for(i=0;i<numList.length;i++){
-                if(numList[i]<2){
+                if(numList[i]<0){
                     nope.push(numList[i]);
-                }else if((numList[i]%2===0)){
+                }else if(numList[i]==1){
+                    powerOf.push(numList[i]);
+                }
+                else if((numList[i]%2===0)){
                     powerOf.push(numList[i]);
                 }else{
                     nope.push(numList[i]);
                 }
-
             }
             console.log("The numbers that are powers of 2 are: " + powerOf);
             display(powerOf);
@@ -127,11 +125,7 @@
 
 
     function display(outputs){
-        var message = "";
-        for(i=0;i<5;i++){
-            message += outputs + "\n";
-        }
-        document.getElementById("output").innerHTML = message;
+        document.getElementById("output").innerHTML = outputs + "\n";
     }
 
 
