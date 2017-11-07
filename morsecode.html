@@ -54,19 +54,21 @@
         var encodeSentence="";
 
         for(j=0; j<word.length; j++){
+            var words = "";
             var letters = word[j];
             for(i=0; i<letters.length; i++){
                 var letter= letters[i];
-                encodeSentence += morse[letter]
+                words += morse[letter]
             }
+            encodeSentence += words + ' '
         }
-        console.log(encodeSentence);
+        console.log("The morse code is as follows: " + encodeSentence);
 
-        display(encodeSentence);
+        display(encodeSentence, sentence);
     }
 
-    function display(encodeSentence){
-
+    function display(encodeSentence, sentence){
+        document.getElementById("output").innerHTML = encodeSentence + " " + sentence;
     }
 
 </script>

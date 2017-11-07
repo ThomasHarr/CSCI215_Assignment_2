@@ -25,42 +25,61 @@
         }
         console.log(numList);
 
-        minMaxMean(numList);
-        evenAndOdd(numList);
+        Min(numList);
+        Max(numList);
+        Mean(numList);
+        even(numList);
+        odd(numList);
         prime(numList);
         powers(numList);
 
-        function minMaxMean(numList){
+        function Min(numList){
+            var min = Math.min.apply(null, numList);
+            console.log("The Min is: " + min);
+
+            display("The Min is: " + min);
+        }
+
+        function Max(numList){
+            var max = Math.max.apply(null, numList);
+            console.log("The Max is: " + max);
+
+            display(max);
+        }
+
+        function Mean(numList){
             var sum=0;
             for(var i=0;i<numList.length; i++){
                 sum+= numList[i];
             }
-            console.log(sum);
             var mean = sum/numList.length;
-            var min = Math.min.apply(null, numList);
-            var max = Math.max.apply(null, numList);
-            console.log(mean);
-            console.log(min);
-            console.log(max);
-            display(mean, max, min);
+            console.log("the Mean is: " + mean)
+
+            display(mean);
         }
 
-        function evenAndOdd(numList){
+        function even(numList){
             var evens=[];
-            var odds=[];
             for(i=0; i<numList.length; i++){
-
                 if((numList[i]%2 !=1)){
                     evens.push(numList[i]);
-
-                }else{
-                    odds.push(numList[i]);
-
                 }
             }
-            console.log(odds);
-            console.log(evens);
-            display(evens, odds);
+            console.log("The Evens are: " + evens);
+
+            display(evens);
+        }
+
+        function odd(numList){
+            var odds =[];
+            for(i=0; i<numList.length; i++){
+                if ((numList[i]%2 == 1)){
+                    odds.push(numList[i]);
+                }
+            }
+            console.log("The Odds are: " + odds);
+
+            display(odds);
         }
 
         function prime(numList){
@@ -71,35 +90,33 @@
                     notPrime.push(numList[i]);
                 }else if(numList[i]===2){
                     primes.push(numList[i]);
+                }else if (numList[i]%2===0) {
+                    notPrime.push(numList[i]);
                 }else{
-                    for(i=0;i<numList.length;i++){
-                        if((numList[i]%2===0)){
-                            notPrime.push(numList[i]);
-                        }else{
-                            primes.push(numList[i]);
-                        }
-                    }
+                    primes.push(numList[i]);
                 }
             }
-            console.log(primes);
+            console.log("The Prime numbers are: " + primes);
             display(primes);
 
         }
 
         function powers(numList){
             var powerOf=[];
-            var nope=[];
+            var nope = [];
             for(i=0;i<numList.length;i++){
-                if(numList[i]<2){
+                if(numList[i]<0){
                     nope.push(numList[i]);
-                }else if((numList[i]%2===0)){
+                }else if(numList[i]==1){
+                    powerOf.push(numList[i]);
+                }
+                else if((numList[i]%2===0)){
                     powerOf.push(numList[i]);
                 }else{
                     nope.push(numList[i]);
                 }
-
             }
-            console.log(powerOf);
+            console.log("The numbers that are powers of 2 are: " + powerOf);
             display(powerOf);
         }
 
@@ -108,7 +125,11 @@
 
 
     function display(outputs){
+<<<<<<< HEAD
         document.getElementById("output").innerHTML=outputs;
+=======
+        document.getElementById("output").innerHTML = outputs + "\n";
+>>>>>>> e4636b8a36d7a61de329285c2fb1a11a0ae925a3
     }
 
 
